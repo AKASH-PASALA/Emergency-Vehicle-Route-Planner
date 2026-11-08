@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Emergency Vehicle Route Planner</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>🚨 Emergency Route Planner</h1>
+        <p>Intelligent Emergency Response Navigation System</p>
+    </div>
+
+
+<span class="status">● SYSTEM ONLINE</span>
+
+
+</header>
+
+<div class="container">
+
+
+<aside class="sidebar">
+
+    <h2>Emergency Configuration</h2>
+
+    <label>Emergency Vehicle</label>
+
+    <select id="vehicle">
+        <option value="Ambulance">🚑 Ambulance</option>
+        <option value="Fire Engine">🚒 Fire Engine</option>
+        <option value="Police">🚓 Police Vehicle</option>
+        <option value="Rescue">🚁 Rescue Vehicle</option>
+        <option value="Disaster Response">🚨 Disaster Response</option>
+    </select>
+
+    <div class="location-info">
+
+        <h3>Select Locations</h3>
+
+        <label>Starting Location</label>
+
+        <input
+            type="text"
+            id="start"
+            placeholder="Click map to select source"
+            readonly
+        >
+
+        <label>Destination</label>
+
+        <input
+            type="text"
+            id="end"
+            placeholder="Click map to select destination"
+            readonly
+        >
+
+        <p class="map-instruction">
+            Click once for source and again for destination.
+        </p>
+
+    </div>
+
+    <button id="calculate">FIND OPTIMAL ROUTE</button>
+
+    <button id="reset" class="reset-button">
+        RESET LOCATIONS
+    </button>
+
+    <div class="results">
+
+        <h3>Route Analysis</h3>
+
+        <div class="result-card">
+
+            <span>🔴 Dijkstra Algorithm</span>
+
+            <h3 id="dijkstra-distance">--</h3>
+
+            <p id="dijkstra-path">
+                Waiting for calculation
+            </p>
+
+        </div>
+
+        <div class="result-card">
+
+            <span>🔵 A* Algorithm</span>
+
+            <h3 id="astar-distance">--</h3>
+
+            <p id="astar-path">
+                Waiting for calculation
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="vehicle-info">
+
+        <h3>Vehicle Information</h3>
+
+        <p id="vehicle-info">
+            Ambulance selected
+        </p>
+
+    </div>
+
+</aside>
+
+<main>
+
+    <div class="map-heading">
+
+        <h2>Mangalagiri Road Network</h2>
+
+        <span>● OpenStreetMap Connected</span>
+
+    </div>
+
+    <div id="map"></div>
+
+    <div class="legend">
+        <span>🔴 Dijkstra Route</span>
+        <span>🔵 A* Route</span>
+        <span>🟢 Source</span>
+        <span>🔴 Destination</span>
+    </div>
+
+</main>
+
+
+</div>
+
+<footer>
+    Emergency Vehicle Route Planner | Graph Algorithm Project
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
